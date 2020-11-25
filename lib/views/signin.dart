@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hello/helper/helperfunctions.dart';
 import 'package:hello/services/auth.dart';
 import 'package:hello/services/database.dart';
+import 'package:hello/views/forgotpassword.dart';
 import 'package:hello/widgets/widget.dart';
 import 'helloRoomScreen.dart';
 
@@ -85,6 +86,10 @@ signMeIn(){
                   TextFormField(
                      obscureText:true,
                         validator: (val){
+                      /* if (val != passwordTextEditingController ){
+                         return "Your password isn't conform";
+                       }*/
+
                           return val.length > 8 ? null:"Please provide password with 8+ characters";
                         },
                     controller: passwordTextEditingController,
@@ -97,9 +102,15 @@ signMeIn(){
                 Container(
                   alignment:Alignment.centerRight,
                   child:Container(
+                    width:double.infinity,
                     padding:EdgeInsets.symmetric(horizontal:16,vertical:8),
-                    child: Text("Password Forgot?", style:simpleTextStyle() ,),
+                    child:InkWell(
+                      onTap: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext )=>Forgotpassword()));
+                      },
+                      child:Text("Password Forgot?", style:simpleTextStyle() ,),
                 ),
+                  ),
                 ),
                 SizedBox(height:8),
                 GestureDetector(

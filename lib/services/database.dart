@@ -33,12 +33,27 @@ class DatabaseMethods{
 
   }
 
-  getConversationMessages(String helloRoomId , messageMap){
+  addConversationMessages(String helloRoomId , messageMap){
   Firestore.instance.collection("HelloRoom")
-      .document("helloroomId")
+      .document(helloRoomId)
       .collection("hellos")
       .add(messageMap).catchError((e){
         print(e.toString());
      });
   }
+  getConversationMessages(String helloRoomId)async{
+     return await Firestore.instance.collection("HelloRoom")
+        .document(helloRoomId)
+        .collection("hellos")
+         .orderBy("time",descending: false)
+        .snapshots();
+
+  }
+  getHelloRooms(String userName)async{
+    return await Firestore.instance
+        .collection("HelloRoom")
+        .where("users",arrayContains: userName)
+        .snapshots();
+  }
+
 }

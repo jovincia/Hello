@@ -6,6 +6,15 @@ Widget appBarMain(BuildContext context){
     Text("Hello",),
   );
 }
+Widget appBarPassForgot(BuildContext context){
+  return AppBar(
+    title:
+    Text("Password Forgot",),
+    backgroundColor: Colors.white,
+
+
+  );
+}
 //white54
 InputDecoration textFieldInputDecoration(String hintText){
   return InputDecoration(
@@ -25,7 +34,7 @@ InputDecoration textFieldInputDecoration(String hintText){
 
 TextStyle simpleTextStyle(){
   return TextStyle(
-    color: Colors.black,
+    color: Colors.white,
     fontSize: 16,
     );
 }
@@ -35,6 +44,13 @@ TextStyle mediumTextStyle(){
     color: Colors.black,
     fontSize: 16,
     );
+}
+
+TextStyle passTextStyle(){
+  return TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+  );
 }
 
 
