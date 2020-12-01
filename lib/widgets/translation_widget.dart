@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello/api/translate_api.dart';
-import 'package:html_unescape/html_unescape.dart';
+import 'package:hello/views/translations.dart';
+
 import 'package:http/http.dart' as http;
 
 class TranslationWidget extends StatefulWidget {
@@ -24,7 +25,7 @@ class _TranslationWidgetState extends State<TranslationWidget> {
   String translation ;
   @override
   Widget build(BuildContext context) {
-    final toLanguageCode = Translations.getLanguagugeCode(widget.toLanguage);
+    final toLanguageCode = Translations.getLanguageCode(widget.toLanguage);
     return FutureBuilder(
       future: TranslationApi.translate(widget.message, toLanguageCode),
       builder: (BuildContext context, AsyncSnapshot snapshot){
@@ -47,3 +48,4 @@ class _TranslationWidgetState extends State<TranslationWidget> {
   Widget buildWaiting() =>
       translation == null ? Container(): widget.builder(translation);
 }
+
