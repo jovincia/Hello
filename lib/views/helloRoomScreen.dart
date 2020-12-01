@@ -18,7 +18,6 @@ class _HelloRoomState extends State<HelloRoom> {
   DatabaseMethods databaseMethods = new DatabaseMethods();
   Stream helloRoomsStream;
 
-
   Widget  helloRoomList(){
     return StreamBuilder(
       stream: helloRoomsStream,
@@ -59,7 +58,7 @@ class _HelloRoomState extends State<HelloRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar  (
         title:
         Text("Hello",),
         actions: [
